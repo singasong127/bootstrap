@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>check</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  </head>
+  <body>
+  	
+  	<form autocomplete="off">
+  	
+  		<p>성별</p>
+  		<div class="form-check">
+  			<input class="form-check-input" type="checkbox" value="male" name="gender" id="male">
+  			<label class="form-check-label" for="male">
+    			남성
+  			</label>
+		</div>
+		<div class="form-check">
+  			<input class="form-check-input" type="checkbox" value="female" name="gender" id="female">
+  			<label class="form-check-label" for="female">
+    			여성
+  			</label>
+		</div>
+  		<div class="form-check">
+  			<input class="form-check-input" type="checkbox" value="etc" name="gender" id="etc">
+  			<label class="form-check-label" for="etc">
+    			기타
+  			</label>
+		</div>
+		
+		<hr>
+		
+		<p>통신사</p>
+		<div class="form-check">
+  			<input class="form-check-input" type="checkbox" value="SKT" name="service" id="skt">
+  			<label class="form-check-label" for="skt">
+    			SKT
+  			</label>
+		</div>
+		<div class="form-check">
+  			<input class="form-check-input" type="checkbox" value="KT" name="service" id="kt">
+  			<label class="form-check-label" for="kt">
+    			KT
+  			</label>
+		</div>
+  		<div class="form-check">
+  			<input class="form-check-input" type="checkbox" value="LG U+" name="service" id="lguplus">
+  			<label class="form-check-label" for="lguplus">
+    			LG U+
+  			</label>
+		</div>
+		
+		<hr>
+		
+		<div class="form-check form-check-inline">
+  			<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked>
+  			<label class="form-check-label" for="inlineCheckbox1">1</label>
+		</div>
+		<div class="form-check form-check-inline">
+  			<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" checked>
+  			<label class="form-check-label" for="inlineCheckbox2">2</label>
+		</div>
+		<div class="form-check form-check-inline">
+  			<input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
+  			<label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+		</div>
+  		
+  		<br>
+  		
+  		<button type="button" class="btn btn-primary" id="btn">Primary</button>
+  		
+  	</form>
+  	
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  	<script>
+  	
+  	$('#btn').on('click', function(){
+  		
+  		
+		var arrayGender = new Array();
+		var arrayService = new Array();
+  		
+  		var genderLength = document.getElementsByName('gender').length;
+  		var serviceLength = document.getElementsByName('service').length;
+  		
+  		for(var i=0; i<genderLength; i++) {
+  			if(document.getElementsByName('gender')[i].checked == true) {
+  				alert(document.getElementsByName('gender')[i].value);
+  				arrayGender.push(document.getElementsByName('gender')[i].value);
+  			} 
+  		} 
+  		
+  		// 자바스크립트
+  		document.getElementsByName("gender")[0].checked = false;
+  		document.getElementsByName("gender")[1].checked = true;
+  		document.getElementById("etc").checked = true;
+  		
+  		// 제이쿼리
+  		/* $("#male").prop("checked", false);
+  		$("#etc").prop("checked", true); */
+  		
+  		for(var i=0; i<arrayGender.length; i++) {
+  			console.log(arrayGender[i]);
+  		}
+  		
+  		for(var i=0; i<serviceLength; i++) {
+  			if(document.getElementsByName('service')[i].checked == true) {
+  				alert(document.getElementsByName('service')[i].value);
+  				arrayService.push(document.getElementsByName('service')[i].value);
+  			}
+  		}
+  		
+  		for(var i=0; i<arrayService.length; i++) {
+  			console.log(arrayService[i]);
+  		}
+  		
+  	});
+  			
+  	
+  		
+  	
+  	</script>
+  </body>
+</html>
+
+<!-- <div class="form-check">
+  		<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+  		<label class="form-check-label" for="flexCheckDefault">
+    		Default checkbox
+  		</label>
+	</div>
+	<div class="form-check">
+  		<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+  		<label class="form-check-label" for="flexCheckChecked">
+    		Checked checkbox
+  		</label>
+	</div>
+	
+	<hr>
+	
+	<div class="form-check">
+  		<input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+  		<label class="form-check-label" for="flexCheckIndeterminate">
+    		Indeterminate checkbox
+  		</label>
+	</div>
+	
+	<hr>
+	
+	<div class="form-check">
+  		<input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminateDisabled" disabled>
+  		<label class="form-check-label" for="flexCheckIndeterminateDisabled">
+    		Disabled indeterminate checkbox
+  		</label>
+	</div>
+	<div class="form-check">
+  		<input class="form-check-input" type="checkbox" value="" id="flexCheckDisabled" disabled>
+  		<label class="form-check-label" for="flexCheckDisabled">
+    		Disabled checkbox
+  		</label>
+	</div>
+	<div class="form-check">
+  		<input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
+  		<label class="form-check-label" for="flexCheckCheckedDisabled">
+    		Disabled checked checkbox
+  		</label>
+	</div>
+  	
+  	<hr>
+  	
+  	<div class="form-check">
+  		<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+  		<label class="form-check-label" for="flexRadioDefault1">
+    		Default radio
+  		</label>
+	</div>
+	<div class="form-check">
+  		<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+  		<label class="form-check-label" for="flexRadioDefault2">
+    		Default checked radio
+  		</label>
+	</div>
+	
+	<hr>
+	
+	<div class="form-check">
+  		<input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
+  		<label class="form-check-label" for="flexRadioDisabled">
+    		Disabled radio
+  		</label>
+	</div>
+	<div class="form-check">
+  		<input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioCheckedDisabled" checked disabled>
+  		<label class="form-check-label" for="flexRadioCheckedDisabled">
+    		Disabled checked radio
+  		</label>
+	</div>
+  	 -->
