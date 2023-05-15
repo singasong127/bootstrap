@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>주말과제_최종</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  </head>
+  <body>
+  
+  	<form autocomplete="off">
+  	
+  	<div class="mb-3">
+  		<label for="name" class="form-label">이름</label>
+  		<input type="text" class="form-control" id="name" placeholder="이름">
+	</div>
+	
+	<br>
+	
+	<div class="mb-3">
+		<label for="country" class="form-label">국적</label>
+		<select class="form-select" aria-label="Default select example" id="country">
+  			<option selected>나라를 선택해주세요</option>
+  			<option value="1">한국</option>
+  			<option value="2">미국</option>
+  			<option value="3">일본</option>
+  			<option value="4">중국</option>
+		</select>
+  	</div>
+  	
+  	<br>
+  	
+  	<div class="mb-3">
+  		<label for="hobby" class="form-label">취미</label>
+  		<div class="form-check">
+  			<input class="form-check-input" type="checkbox" value="game" name="hobby" id="game">
+  			<label class="form-check-label" for="game">
+    			게임
+  			</label>
+		</div>
+		<div class="form-check">
+  			<input class="form-check-input" type="checkbox" value="reading" name="hobby" id="reading">
+  			<label class="form-check-label" for="reading">
+    			독서
+  			</label>
+		</div>
+		<div class="form-check">
+  			<input class="form-check-input" type="checkbox" value="movie" name="hobby" id="movie">
+  			<label class="form-check-label" for="movie">
+    			영화 감상
+  			</label>
+		</div>
+  	</div>
+  	
+  	<br>
+  	<div class="mb-3">
+  		<label for="gender" class="form-label">성별</label>
+  		<div class="form-check">
+  			<input class="form-check-input" type="radio" value="male" name="gender" id="male">
+  			<label class="form-check-label" for="male">
+    			남성
+  			</label>
+		</div>
+		<div class="form-check">
+  			<input class="form-check-input" type="radio" value="female" name="gender" id="female">
+  			<label class="form-check-label" for="female">
+    			여성
+  			</label>
+		</div>
+  	
+  	</div>
+  	
+  	<button type="button" class="btn btn-primary" id="btnJQ">JQuery</button>
+  	<button type="button" class="btn btn-primary" id="btnJS">JavaScript</button>
+  	
+  	
+  	</form>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  	
+  	<script>
+  	
+  		$("#btnJQ").on("click", function(){
+  			
+  			var arrayHobbyJQ = new Array();
+  			
+  			alert( '이름 : ' + $.trim($("#name").val()) );
+  			$("#name").val('홍길동');
+  			alert( '이름 : ' + $.trim($("#name").val()) );
+  			
+  			alert( '나라 : ' + $("#country").val() );
+  			$("#country").val('3').prop("selected", true);
+  			alert( '나라 : ' + $("#country").val() );
+  			
+  			for(var i=0; i<$("input:checkbox[name=hobby]").length; i++) {
+  				
+  				if( $("input:checkbox[name=hobby]").eq(i).is(":checked") == true){
+  					alert( $("input:checkbox[name=hobby]").eq(i).val() );
+  					arrayHobbyJQ.push($("input:checkbox[name=hobby]").eq(i).val());
+  				} 
+  				
+  			}
+  			
+  			for(var i=0; i<arrayHobbyJQ; i++) {
+  				console.log(arrayHobbyJQ[i]);
+  			}
+  			
+  			$("input:checkbox[name=hobby]").eq(0).prop("checked", false);
+  			$("input:checkbox[name=hobby]").eq(2).prop("checked", true);
+  			
+  			
+  			alert( $("input:radio[name=gender]:checked").val() );
+  			$("input:radio[name=gender]").eq(0).prop("checked", false);
+  			$("input:radio[name=gender]").eq(1).prop("checked", true);
+  			alert( $("input:radio[name=gender]:checked").val() );
+  			
+  			
+  		});
+  		
+  		document.getElementById("btnJS").onclick = function() {
+  			
+  			var arrayHobbyJS = new Array();
+  			
+  			
+  			alert( '이름 : ' + document.getElementById('name').value );
+  			document.getElementById('name').value = '아무개';
+  			alert( '이름 : ' + document.getElementById('name').value );
+  			
+  			alert( '나라 : ' + document.getElementById('country').value );
+  			document.getElementById('country').options[4].selected = true;
+  			alert( '나라 : ' + document.getElementById('country').value );
+  			
+  		};
+  	
+  	</script>
+  	
+  </body>
+</html>
