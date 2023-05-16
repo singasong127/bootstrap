@@ -114,7 +114,6 @@
   			alert( $("input:radio[name=gender]:checked").val() );
   			$("input:radio[name=gender]").eq(0).prop("checked", false);
   			$("input:radio[name=gender]").eq(1).prop("checked", true);
-  			alert( $("input:radio[name=gender]:checked").val() );
   			
   			
   		});
@@ -124,13 +123,33 @@
   			var arrayHobbyJS = new Array();
   			
   			
-  			alert( '이름 : ' + document.getElementById('name').value );
+  			alert( '이름 : ' + document.getElementById('name').value.trim() );
   			document.getElementById('name').value = '아무개';
-  			alert( '이름 : ' + document.getElementById('name').value );
+  			alert( '이름 : ' + document.getElementById('name').value.trim() );
   			
   			alert( '나라 : ' + document.getElementById('country').value );
-  			document.getElementById('country').options[4].selected = true;
+  			document.getElementById('country').options[3].selected = true;
   			alert( '나라 : ' + document.getElementById('country').value );
+  			
+  			for(var i=0; i<document.getElementsByName('hobby').length; i++) {
+  				
+  				if(document.getElementsByName('hobby')[i].checked == true) {
+  					alert(document.getElementsByName("hobby")[i].value);
+  					arrayHobbyJS.push(document.getElementsByName("hobby")[i].value);
+  				}
+  				
+  			}
+  			
+  			for(var i=0; i<arrayHobbyJS; i++) {
+  				console.log(arrayHobbyJS[i]);
+  			}
+  			
+  			document.getElementsByName("hobby")[0].checked = false;
+  			document.getElementsByName("hobby")[2].checked = true;
+  			
+  			alert(document.querySelector("input[name='gender']:checked").value);
+  			document.getElementsByName("gender")[0].checked = false;
+  			document.getElementsByName("gender")[1].checked = true;
   			
   		};
   	
