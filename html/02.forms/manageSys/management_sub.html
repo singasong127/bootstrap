@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  	<style>
+  		* {margin: 0; padding: 0; border: 0;}
+  		ul {list-style: none;
+  			padding: 0;}
+  		a {text-decoration: none;
+  			color: #000;}
+  		
+  		
+  		#wrap {width: 1600px; height: 100%;
+  			margin: auto;}
+  		
+  		#header {width: 100%;
+  			display: flex;
+  			justify-content: space-between;}
+  		#logo_wrap {float: left;
+  			display: flex;
+  			align-items: center;
+  			margin-left: 40px;}
+  		#logo_wrap h1 {margin-right: 60px;}
+  		#logo_wrap span {font-weight: bold;
+  			font-size: 30px;
+  			letter-spacing: -2px;}
+  		#user_search {float: right;
+  			display: flex;
+  			align-items: center;
+  			margin-right: 40px;}
+  		#accountImg i {font-size: 40px;}
+  		#userAccount {display: flex;
+  			flex-direction: column;
+  			justify-content: center;
+  			align-items: center;
+  			margin-left: 15px;}
+  		#language {margin-left: 40px;}
+  		
+  		
+  			
+  		#nav {width: 100%; height: 60px; background-color: rgba(0,0,255,.5);
+  			padding: 20px 0;
+  			clear: both;}
+  		#menu {display: flex;}
+  		.menuTab {margin-right: 20px;}
+  		
+  		#lnb {width: 15%;
+  			float: left;
+  			padding: 20px;
+  			box-sizing: border-box;
+  			}
+  		#side_menu li {margin-bottom: 15px;
+  			font-weight: bold;}
+  		#side_menu li::before {content: ">"; margin-right: 10px;}
+  		#side_menu li:nth-of-type(3) {border-bottom: 1px solid #ccc;
+  			padding-bottom: 20px;}	
+  		
+  		#main {width: 85%;
+  			float: right;
+  			padding: 40px;
+  			box-sizing: border-box;}
+  			
+  		#inputDataWrap {width: 100%;
+  			margin-bottom: 20px;}
+  		.inputForm {width: 100%;}
+  		.inputEssential::after{content: "*";
+  			color: crimson;}
+  		#inputDataTop .row {width: 45%;}
+  		#inputDataMiddle {display: flex;}
+  		#inputDataMiddle .row {width: 90%;}
+  		#inputDataMiddle .inputform:nth-of-type(2n) {margin-right: 0;}
+  		#inputDataMidLeft {width: 50%;}
+  		#inputDataMidRight {width: 50%;}
+  		#inputDataBottom {width: 100%;}
+  		#inputDataBottom .row {width: 45%;}
+  		#inputDataBottom textarea {height: 200px;}
+  		.row {width: 100%;
+  			margin: 0 5% 10px 0;}
+  		label {width: 100%;
+  			margin-bottom: 5px;}
+  		
+  		
+  		#btnWrap {display: flex;
+  			justify-content: space-between;}
+  		#btnWrap button {width: 40px; height: 40px;}	
+  		
+  		#footer {width: 100%;
+  			background-color: rgba(0,0,0,.1);
+  			clear: both;
+  			padding: 20px 0;}
+  		#company ul {display: flex;
+  			justify-content: center;}
+  		#company ul li::after {content: " | ";
+  			margin-right: 5px;}
+  		#company ul li:last-of-type::after {
+  			content: "";
+  		}
+  		
+  		#copyright {display: flex;
+  			justify-content: center;}
+  	</style>
+  
+  </head>
+  <body>
+  	<div id="wrap">
+  		
+  		<header id="header">
+  			<div id="logo_wrap">
+  				<h1><a href="#">logo</a></h1>
+  				<span>ABC Management System</span>
+  			</div>
+  			<div id="user_search">
+  				<div id="accountImg"><i class="bi bi-person-circle"></i></div>
+  				<div id="userAccount">	
+  					<span class="userId">USER</span>
+  					<span class="userRank">Administrator</span>
+  				</div>
+  					
+  				<select class="form-select" aria-label="Default select example" id="language">
+  					<option selected>언어</option>
+  					<option value="1">한국어</option>
+  					<option value="2">ENGLISH</option>
+  					<option value="3">JAPANESE</option>
+  					<option value="4">CHINESE</option>
+				</select>
+		
+  			</div>
+  			 
+  		</header>
+  		
+  		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  			<div class="container-fluid">
+    			<a class="navbar-brand" href="#">Navbar</a>
+    			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      				<span class="navbar-toggler-icon"></span>
+   	 			</button>
+    			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+      				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        				<li class="nav-item">
+          					<a class="nav-link active" aria-current="page" href="#">회원관리</a>
+        				</li>
+        				<li class="nav-item">
+          					<a class="nav-link disabled" href="#">서비스관리</a>
+        				</li>
+        				<li class="nav-item">
+          					<a class="nav-link disabled" href="#">사이트관리</a>
+        				</li>
+        				<li class="nav-item">
+          					<a class="nav-link disabled" href="#">로그관리</a>
+        				</li>
+        				<li class="nav-item">
+          					<a class="nav-link disabled" href="#">시스템관리</a>
+        				</li>
+      				</ul>
+    			</div>
+  			</div>
+		</nav>
+  		
+  		<nav id="lnb">
+  			
+  			<ul id="side_menu">
+  				<li><a href="#">Home</a></li>
+	  			<li><a href="#">Dashboard</a></li>
+	  			<li><a href="#">Orders</a></li>
+	  			<li><a href="#">Account</a></li>
+  			</ul>
+  		
+  		</nav>
+  		
+  		<section id="main">
+  			
+  			<h3>국가코드 관리</h3>
+  			<div id="inputDataWrap">
+  				<form autocomplete="off">
+  					<div id="inputDataTop">
+  						<div class="row gx-0">
+  							<label for="validationSeq" class="form-label inputDataName inputEssential">Seq</label>
+  							<input class="form-control inputForm" type="text" placeholder="자동 생성" aria-label="seq" disabled>
+  						</div>
+  						<div class="row gx-0">
+  							<label for="validationName" class="form-label inputDataName inputEssential">국가 이름</label>
+  							<input class="form-control inputForm" type="text" value="" aria-label="countryName">
+  							<div class="invalid-feedback">입력해주세요.</div>
+  						</div>
+  					</div>
+  					<div id="inputDataMiddle">
+  						<div id="inputDataMidLeft">
+  							<div class="row gx-0">
+  								<label for="validationNameKr" class="form-label inputDataName">국가 이름 (한글)</label>
+  								<input class="form-control inputForm" type="text" value="" aria-label="countryNameKr">
+  							</div>
+  							<div class="row gx-0">
+  								<label for="validationNameTwo" class="form-label inputDataName inputEssential">국가 코드 (2자리)</label>
+  								<input class="form-control inputForm" type="text" placeholder="영대소문자" value="" aria-label="countryNameTwo">
+  								<div class="invalid-feedback"></div>
+  							</div>
+  							<div class="row gx-0">
+  								<label for="validationUseIt" class="form-label inputDataName inputEssential">사용 여부</label>
+  								<select class="form-select inputForm" aria-label="useIt">
+  									<option selected value="1">Y</option>
+  									<option value="2">N</option>
+								</select>
+  								<div class="invalid-feedback"></div>
+  							</div>
+  						</div>
+  						<div id="inputDataMidRight">
+  							
+  							<div class="row gx-0">
+  								<label for="validationNameEn" class="form-label inputDataName">국가 이름 (영문)</label>
+  								<input class="form-control inputForm" type="text" placeholder="영대소문자" value="" aria-label="countryNameEn">
+  							</div>
+  							<div class="row gx-0">
+								<label for="validationNameThree" class="form-label inputDataName inputEssential">국가 코드 (3자리)</label>
+  								<input class="form-control inputForm" type="text" placeholder="영대소문자" value="" aria-label="countryNameThree">
+  								<div class="invalid-feedback"></div>
+  							</div>
+  							<div class="row gx-0">
+  								<label for="validationInputSeq" class="form-label inputDataName inputEssential">순서</label>
+  								<input class="form-control inputForm" type="number" placeholder="숫자(0~255)" value="" aria-label="inputSeq">  				
+  								<div class="invalid-feedback">숫자를 입력해주세요.</div>
+  							</div>
+  						
+  						</div>
+  						
+  					</div>
+  						
+  					<div id="inputDataBottom">
+  						<div class="row gx-0">
+  							<label class="form-label inputDataName">설명</label>
+  							<textarea class="form-control inputForm" aria-label="explanation"></textarea>
+  						</div>
+  					</div>
+  				</form>
+  			
+  			</div>
+  			<div id="btnWrap">
+  				<button type="button" class="btn btn-secondary"><i class="bi bi-list"></i></button>
+  				<button type="button" class="btn btn-success"><i class="bi bi-bookmark"></i></button>
+  			</div>
+  			
+  		
+  		</section>		
+  		
+  		<footer id="footer">
+  			<div id="company">
+  				<ul>
+  					<li>(주)마이컴퍼니</li>
+  					<li>대표 : 송재윤</li>
+  					<li>사업자등록번호 : 123-45-123456</li>
+  					<li>경기도 김포시 통진읍 흥신로 291</li>
+  				</ul>
+  			
+  			</div>
+  			<div id="copyright"><span>Copyright 2023. Mycompany Inc. all rights reserved</span></div>
+  		</footer>
+  	</div>
+  	<div class="modal" tabindex="-1">
+  		<div class="modal-dialog">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<h5 class="modal-title">Modal title</h5>
+        			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      			</div>
+      			<div class="modal-body">
+        			<p>Modal body text goes here.</p>
+      			</div>
+      			<div class="modal-footer">
+        			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        			<button type="button" class="btn btn-primary">Save changes</button>
+      			</div>
+    		</div>
+  		</div>
+	</div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  	
+  	<script>
+  		
+  		/* document.getElementById("eraseBtn").onclick = function() {
+  			document.getElementById("eraseBtn").addEventListener("click", function() {
+  				
+  				
+  				
+  			});
+  		}
+  	 */
+  	</script>
+  	
+  </body>
+</html>
