@@ -175,7 +175,7 @@
   			
   			<h3>국가코드 관리</h3>
   			<div id="inputDataWrap">
-  				<form autocomplete="off">
+  				<form autocomplete="off" class="needs-validation" novalidate>
   					<div id="inputDataTop">
   						<div class="row gx-0">
   							<label for="validationSeq" class="form-label inputDataName inputEssential">Seq</label>
@@ -183,7 +183,7 @@
   						</div>
   						<div class="row gx-0">
   							<label for="validationName" class="form-label inputDataName inputEssential">국가 이름</label>
-  							<input class="form-control inputForm" type="text" value="" aria-label="countryName">
+  							<input class="form-control inputForm inputImport" type="text" value="" aria-label="countryName">
   							<div class="invalid-feedback">입력해주세요.</div>
   						</div>
   					</div>
@@ -195,16 +195,16 @@
   							</div>
   							<div class="row gx-0">
   								<label for="validationNameTwo" class="form-label inputDataName inputEssential">국가 코드 (2자리)</label>
-  								<input class="form-control inputForm" type="text" placeholder="영대소문자" value="" aria-label="countryNameTwo">
+  								<input class="form-control inputForm inputImport" type="text" placeholder="영대소문자" value="" aria-label="countryNameTwo">
   								<div class="invalid-feedback">영대소문자로 입력해주세요.</div>
   							</div>
   							<div class="row gx-0">
   								<label for="validationUseIt" class="form-label inputDataName inputEssential">사용 여부</label>
-  								<select class="form-select inputForm" aria-label="useIt">
+  								<select class="form-select inputForm inputImport" aria-label="useIt">
   									<option selected value="1">Y</option>
   									<option value="2">N</option>
 								</select>
-  								<div class="invalid-feedback"></div>
+  								<div class="invalid-feedback">선택해주세요.</div>
   							</div>
   						</div>
   						<div id="inputDataMidRight">
@@ -215,12 +215,12 @@
   							</div>
   							<div class="row gx-0">
 								<label for="validationNameThree" class="form-label inputDataName inputEssential">국가 코드 (3자리)</label>
-  								<input class="form-control inputForm" type="text" placeholder="영대소문자" value="" aria-label="countryNameThree">
+  								<input class="form-control inputForm inputImport" type="text" placeholder="영대소문자" value="" aria-label="countryNameThree">
   								<div class="invalid-feedback">영대소문자로 입력해주세요.</div>
   							</div>
   							<div class="row gx-0">
   								<label for="validationInputSeq" class="form-label inputDataName inputEssential">순서</label>
-  								<input class="form-control inputForm" type="number" placeholder="숫자(0~255)" value="" aria-label="inputSeq">  				
+  								<input class="form-control inputForm inputImport" type="number" placeholder="숫자(0~255)" value="" aria-label="inputSeq">  				
   								<div class="invalid-feedback">숫자를 입력해주세요.</div>
   							</div>
   						
@@ -239,7 +239,7 @@
   			</div>
   			<div id="btnWrap">
   				<button type="button" class="btn btn-secondary" id="goToListBtn"><i class="bi bi-list"></i></button>
-  				<button type="button" class="btn btn-success"><i class="bi bi-bookmark"></i></button>
+  				<button type="button" class="btn btn-success" id="submitBtn"><i class="bi bi-bookmark"></i></button>
   			</div>
   			
   		
@@ -264,21 +264,32 @@
   	
   	<script>
   		
-  		/* document.getElementById("eraseBtn").onclick = function() {
-  			document.getElementById("eraseBtn").addEventListener("click", function() {
-  				
-  				
-  				
-  			});
-  		}
-  	 */
-  	 
-  		
   			document.getElementById("goToListBtn").addEventListener("click", e=> {
   					
   				window.location = "../manageSys/management.html";
   			 
   	 		});
+  			
+  			document.getElementById("submitBtn").onclick = function() {
+  				
+  				 const forms = document.querySelectorAll('.needs-validation');
+				
+  				 var inputVal = document.getElementsByClassName("inputImport").value;
+  				 
+  				  // Loop over them and prevent submission
+  				  Array.from(forms).forEach(form => {
+  				    document.querySelector("#submitBtn").addEventListener('click', event => {
+  				      if (!form.checkValidity()) {
+  				        event.preventDefault();
+  				        event.stopPropagation();
+  				      }
+
+  				      form.classList.add('was-validated')
+  				    }, false);
+  				  })
+  				
+  			};
+  				
   	 
   	</script>
   	
