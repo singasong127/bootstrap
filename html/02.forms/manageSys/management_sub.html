@@ -175,32 +175,32 @@
   			
   			<h3>국가코드 관리</h3>
   			<div id="inputDataWrap">
-  				<form autocomplete="off" class="needs-validation" novalidate>
+  				<form autocomplete="off" class="needs-validation">
   					<div id="inputDataTop">
   						<div class="row gx-0">
-  							<label for="validationSeq" class="form-label inputDataName inputEssential">Seq</label>
+  							<label for="seq" class="form-label inputDataName inputEssential">Seq</label>
   							<input class="form-control inputForm" type="text" placeholder="자동 생성" aria-label="seq" disabled>
   						</div>
   						<div class="row gx-0">
-  							<label for="validationName" class="form-label inputDataName inputEssential">국가 이름</label>
-  							<input class="form-control inputForm inputImport" type="text" value="" aria-label="countryName">
+  							<label for="countryName" class="form-label inputDataName inputEssential">국가 이름</label>
+  							<input class="form-control inputForm inputImport" type="text" value="" aria-label="countryName" required>
   							<div class="invalid-feedback">입력해주세요.</div>
   						</div>
   					</div>
   					<div id="inputDataMiddle">
   						<div id="inputDataMidLeft">
   							<div class="row gx-0">
-  								<label for="validationNameKr" class="form-label inputDataName">국가 이름 (한글)</label>
-  								<input class="form-control inputForm" type="text" value="" aria-label="countryNameKr">
+  								<label for="countryNameKr" class="form-label inputDataName">국가 이름 (한글)</label>
+  								<input class="form-control inputForm" type="text" value="" aria-label="countryNameKr" required>
   							</div>
   							<div class="row gx-0">
-  								<label for="validationNameTwo" class="form-label inputDataName inputEssential">국가 코드 (2자리)</label>
-  								<input class="form-control inputForm inputImport" type="text" placeholder="영대소문자" value="" aria-label="countryNameTwo">
+  								<label for="countryNameTwo" class="form-label inputDataName inputEssential">국가 코드 (2자리)</label>
+  								<input class="form-control inputForm inputImport" type="text" placeholder="영대소문자" value="" aria-label="countryNameTwo" required>
   								<div class="invalid-feedback">영대소문자로 입력해주세요.</div>
   							</div>
   							<div class="row gx-0">
-  								<label for="validationUseIt" class="form-label inputDataName inputEssential">사용 여부</label>
-  								<select class="form-select inputForm inputImport" aria-label="useIt">
+  								<label for="useIt" class="form-label inputDataName inputEssential">사용 여부</label>
+  								<select class="form-select inputForm inputImport" aria-label="useIt" required>
   									<option selected value="1">Y</option>
   									<option value="2">N</option>
 								</select>
@@ -210,17 +210,17 @@
   						<div id="inputDataMidRight">
   							
   							<div class="row gx-0">
-  								<label for="validationNameEn" class="form-label inputDataName">국가 이름 (영문)</label>
-  								<input class="form-control inputForm" type="text" placeholder="영대소문자" value="" aria-label="countryNameEn">
+  								<label for="countryNameEn" class="form-label inputDataName">국가 이름 (영문)</label>
+  								<input class="form-control inputForm" type="text" placeholder="영대소문자" value="" aria-label="countryNameEn" required>
   							</div>
   							<div class="row gx-0">
-								<label for="validationNameThree" class="form-label inputDataName inputEssential">국가 코드 (3자리)</label>
-  								<input class="form-control inputForm inputImport" type="text" placeholder="영대소문자" value="" aria-label="countryNameThree">
+								<label for="countryNameThree" class="form-label inputDataName inputEssential">국가 코드 (3자리)</label>
+  								<input class="form-control inputForm inputImport" type="text" placeholder="영대소문자" value="" aria-label="countryNameThree" required>
   								<div class="invalid-feedback">영대소문자로 입력해주세요.</div>
   							</div>
   							<div class="row gx-0">
-  								<label for="validationInputSeq" class="form-label inputDataName inputEssential">순서</label>
-  								<input class="form-control inputForm inputImport" type="number" placeholder="숫자(0~255)" value="" aria-label="inputSeq">  				
+  								<label for="inputSeq" class="form-label inputDataName inputEssential">순서</label>
+  								<input class="form-control inputForm inputImport" type="number" placeholder="숫자(0~255)" value="" aria-label="inputSeq" required>  				
   								<div class="invalid-feedback">숫자를 입력해주세요.</div>
   							</div>
   						
@@ -275,18 +275,25 @@
   				 const forms = document.querySelectorAll('.needs-validation');
 				
   				 var inputVal = document.getElementsByClassName("inputImport").value;
-  				 
-  				  // Loop over them and prevent submission
-  				  Array.from(forms).forEach(form => {
-  				    document.querySelector("#submitBtn").addEventListener('click', event => {
-  				      if (!form.checkValidity()) {
-  				        event.preventDefault();
-  				        event.stopPropagation();
-  				      }
+	  				 
+  				 document.getElementById("submitBtn").addEventListener("click" , event => {
+  					
+  				// Loop over them and prevent submission
+  	  				  Array.from(forms).forEach(form => {
+  	  					form.addEventListener('click', event => {
+  	      					if (!form.checkValidity()) {
+  	        				event.preventDefault()
+  	        				event.stopPropagation()
+  	      					}
 
-  				      form.classList.add('was-validated')
-  				    }, false);
-  				  })
+  	      				form.classList.add('was-validated')
+  	    				}, false)
+  	  				})
+
+  				
+  				 })
+  				 
+  				  
   				
   			};
   				
